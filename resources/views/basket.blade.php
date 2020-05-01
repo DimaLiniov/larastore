@@ -1,10 +1,8 @@
-@extends('master')
+@extends('layouts.master')
 
 @section('title', 'Корзина')
 
 @section('content')
-    <div class="starter-template">
-        <p class="alert alert-success">Added to cart iPhone X 64GB</p>
         <h1>Your Cart</h1>
         <p>Ordering</p>
         <div class="panel">
@@ -57,5 +55,4 @@
                 <a type="button" class="btn btn-success" href="{{route('basket-place')}}">Place your order</a>
             </div>
         </div>
-    </div>
 @endsection
