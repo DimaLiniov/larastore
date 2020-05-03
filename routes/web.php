@@ -11,6 +11,20 @@
 |
 */
 
+Auth::routes([
+   'reset' => false,
+   'confirm' => false,
+   'verify' => false,
+]);
+Route::get('/logout', 'Auth\loginController@logout')->name('get-logout');
+
+Route::group([
+    'middleware'=>'auth',
+    'namespace'=>'Admin',
+], function (){
+    Route::get('/orders', 'OrderController@index')->name('home');
+});
+
 
 Route::get('/', "MainController@index")->name('index');
 Route::get('/categories', "MainController@categories")->name('categories');
@@ -22,7 +36,7 @@ Route::post('/basket/add/{id}', "BasketController@basketAdd")->name('basket-add'
 Route::post('/basket/place', "BasketController@basketConfirm")->name('basket-confirm');
 
 Route::get('/{category}', "MainController@category")->name('category');
-Route::get('/{category}}/{product?}', "MainController@product")->name('product');
+Route::get('/{category}/{product?}', "MainController@product")->name('product');
 
 
 

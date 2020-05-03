@@ -27,6 +27,15 @@
                 <li ><a href="{{ route('basket') }}">В корзину</a></li>
                 <li><a href="{{ route('index') }}">Сбросить проект в начальное состояние</a></li>
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                @guest
+                    <li><a href="{{route('login')}}">Войти</a></li>
+                @endguest
+                @auth
+                    {{--<li><a href="{{route('login)}}">Панель админа</a></li>--}}
+                    <li><a href="{{route('get-logout')}}">Выйти</a></li>
+                @endauth
+            </ul>
         </div>
     </div>
 </nav>
