@@ -32,7 +32,7 @@
                     <li><a href="{{route('login')}}">Войти</a></li>
                 @endguest
                 @auth
-                    {{--<li><a href="{{route('login)}}">Панель админа</a></li>--}}
+                    <li><a href="{{route('home')}}">Панель админа</a></li>
                     <li><a href="{{route('get-logout')}}">Выйти</a></li>
                 @endauth
             </ul>
