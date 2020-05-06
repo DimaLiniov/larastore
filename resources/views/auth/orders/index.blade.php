@@ -1,3 +1,5 @@
+
+
 @extends('auth.layouts.master')
 
 @section('title', 'Заказы')
@@ -46,3 +48,4 @@
         </table>
     </div>
 @endsection
+

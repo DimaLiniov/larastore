@@ -21,10 +21,14 @@ Route::get('/logout', 'Auth\loginController@logout')->name('get-logout');
 Route::group([
     'middleware'=>'auth',
     'namespace'=>'Admin',
+    'prefix'=>'admin',
 ], function (){
     Route::group(['middleware' => 'is_admin'], function (){
         Route::get('/orders', 'OrderController@index')->name('home');
     });
+
+    Route::resource('categories', 'CategoryController');
+    Route::resource('products', 'ProductController');
 });
 
 
@@ -42,12 +46,9 @@ Route::group([
         Route::get('/', "BasketController@basket")->name('basket');
         Route::get('/place', "BasketController@basketPlace")->name('basket-place');
         Route::post('/remove/{id}', "BasketController@basketRemove")->name('basket-remove');
-
         Route::post('/place', "BasketController@basketConfirm")->name('basket-confirm');
     });
 });
-
-
 
 Route::get('/{category}', "MainController@category")->name('category');
 Route::get('/{category}/{product?}', "MainController@product")->name('product');
